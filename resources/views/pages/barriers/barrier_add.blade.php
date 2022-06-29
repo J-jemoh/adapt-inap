@@ -30,7 +30,9 @@
     						<label>Barrier Category</label>
     						<select name="barrier_category" class="form-control" required>
     							<option selected disabled>Choose barrier category</option>
-    							<option value="1">Category one</option>
+                  @foreach($categories as $category)
+    							<option value="{{$category->id}}">{{$category->category_name}}</option>
+                  @endforeach
     						</select>
     					</div>
     				</div>

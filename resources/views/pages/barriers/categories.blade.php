@@ -25,9 +25,20 @@
     				</tr>
     			</thead>
     			<tbody>
+            @foreach($categories as $category)
     				<tr>
-    					
+              <td>{{$category->id}}</td>
+    					<td><a href="{{route('admin.barriercategory.show',$category->id )}}"><b>{{$category->category_name}}</b></a></td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary"><i class="bi bi-eye"></i> view</button>
+                <button type="button" class="btn btn-warning"><i class="bi bi-pencil text-white"></i> edit</button>
+                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i> delete</button>
+              </div>
+
+              </td>
     				</tr>
+            @endforeach
     			</tbody>
     		</table>
     	</div>

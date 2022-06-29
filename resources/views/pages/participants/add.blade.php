@@ -128,30 +128,22 @@
     					<div class="col-4">
     						<div class="mb-3">
     							<label><b>Barrier Category</b></label>
-    							<select name="barrier_category" class="form-control" required>
+    							<select name="barrier_category" class="form-control" required id="category_name">
     								<option selected disabled>Choose category</option>
-    								<option>Structural Barriers</option>
-    								<option>Medical Barriers</option>
-    								<option>Pyscological Barriers</option>
-    								<option>Physcosocial Barriers</option>
-    								<option>Transport Barriers</option>
+                    @foreach($barriers as $category)
+    								<option value="{{$category->barriercategory->id}}">{{$category->barriercategory->category_name}}</option>
+                    @endforeach
     							</select>
     						</div>
     					</div>
     					<div class="col-4">
     						<div class="mb-3">
     							<label><b>Choose barrier</b></label>
-    							<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-								<datalist id="datalistOptions">
-								  <option value="Lack of food">Lack of food</option>
-								  <option value="Lack of transport">Lack of transport</option>
-								  <option value="Long queues">Long queues</option>
-								</datalist>
+                  <select class="form-control" id="barrier" name="barrier_name">
+                    
+                  </select>
     						</div>
     					</div>
-
-    					
-    					
 
     				</div>
     			</div>
@@ -163,5 +155,28 @@
     		</form>
     	</div>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#category_name').on('change', function() {
+        var category_id = this.value;
+        $("#barrier").html('');
+        $.ajax({
+        url:"{{url('/admin/dashboard/get/barriers')}}",
+        type: "POST",
+        data: {
+        category_id: category_id,
+        _token: '{{csrf_token()}}'
+        },
+        dataType : 'json',
+        success: function(result){
+        $('#barrier').html('<option value="">Select Barrier name</option>');
+        $.each(result.barriers,function(key,value){
+        $("#barrier").append('<option value="'+value.barrier_name+'">'+value.barrier_name+'</option>');
+        });
+        }
+        });
+        });    
+        });
+  </script>
  @endsection

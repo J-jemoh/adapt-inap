@@ -12,6 +12,8 @@ Route::prefix('admin')->group(function(){
 		Route::get('/barriers/list','barrier_list')->name('admin.barriers.list');
 		Route::get('/barriers/add','barrier_add')->name('admin.barriers.add');
 		Route::get('/locator/list','locator_list')->name('admin.locator.list');
+		Route::get('/barriers/category/{id}','show_category')->name('admin.barriercategory.show');
+		Route::post('/get/barriers','get_barriers')->name('admin.get.barrier_name');
 	});
 
 });
