@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ParticipantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+
+});
+//get all participants
+
+Route::prefix('participants')->group(function(){
+
+    Route::controller(ParticipantController::class)->group(function(){
+
+        Route::get('/','get_participants')->name('admin.participants');
+        Route::post('/{id}','show_participant')->name('admin.participant.show');
+    });
 });

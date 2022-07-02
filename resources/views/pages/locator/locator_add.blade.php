@@ -12,8 +12,8 @@
       </nav>
     </div><!-- End Page Title -->
     <div class="card">
-    	<div class="card-header"><b>All Locators</b>
-    		<a class="btn btn-primary float-end" href="#"><i class="bi bi-plus"></i> Update Locator </a>
+    	<div class="card-header"><b>Add Locator</b>
+    		<a class="btn btn-primary float-end" href="#"><i class="bi bi-plus"></i> Add Locator </a>
     	</div>
     	<div class="card-body">
     		<table class="table datatable">

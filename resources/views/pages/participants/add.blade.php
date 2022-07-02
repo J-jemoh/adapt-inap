@@ -97,12 +97,12 @@
     							<label><b>Relationship with participant</b></label>
     							<select name="caregiver_relationhip" class="form-control" required>
     								<option selected disabled>select relationship</option>
-    								<option value="1">Biological mother</option>
-    								<option value="2">Biological father</option>
-    								<option value="3">Adoptive parent</option>
-    								<option value="4">Foster parent</option>
-    								<option value="5">Partner</option>
-    								<option value="6">Other</option>
+    								<option >Biological mother</option>
+    								<option >Biological father</option>
+    								<option >Adoptive parent</option>
+    								<option >Foster parent</option>
+    								<option >Partner</option>
+    								<option >Other</option>
     							</select>
     						</div>
     					</div>
@@ -139,7 +139,7 @@
     					<div class="col-4">
     						<div class="mb-3">
     							<label><b>Choose barrier</b></label>
-                  <select class="form-control" id="barrier" name="barrier_name">
+                  <select class="form-control" id="barrier" name="barrier_name" multiple>
                     
                   </select>
     						</div>

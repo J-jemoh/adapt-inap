@@ -34,6 +34,7 @@
                 </div>
 
                 <div class="card-body">
+                  <a href="{{route('admin.participants')}}">
                   <h5 class="card-title">Participants <span>| All</span></h5>
 
                   <div class="d-flex align-items-center">
@@ -41,11 +42,12 @@
                       <i class="bi bi-person"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>0</h6>
+                      <h6>{{$participants}}</h6>
                       
 
                     </div>
                   </div>
+                </a>
                 </div>
 
               </div>
@@ -115,7 +117,7 @@
                       <i class="bi bi-three-dots"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{$bcategoriesxa}}</h6>
+                      <h6>{{$bcategories}}</h6>
                       
 
                     </div>

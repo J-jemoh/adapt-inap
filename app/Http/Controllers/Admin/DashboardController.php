@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BarrierCategories;
 use App\Models\Barriers;
+use App\Models\Participants;
 
 class DashboardController extends Controller
 {
@@ -18,10 +19,12 @@ class DashboardController extends Controller
     public function index(){
         $categories=Barriers::count();
         $bcategories=BarrierCategories::count();
-        return view('pages.dashboard',compact('categories','bcategories'));
+        $participants= Participants::count();
+        return view('pages.dashboard',compact('categories','bcategories','participants'));
     }
     public function participants_listing(){
-        return view('pages.participants.list');
+        $participants=Participants::get();
+        return view('pages.participants.list',compact('participants'));
     }
     public function participant_add(){
         $categories =BarrierCategories::get();
